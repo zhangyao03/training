@@ -16,8 +16,12 @@ public class RunSort {
 //        q.quickSort(array, 0, array.length - 1);
 
         // 归并排序
-        MergeSort m = new MergeSort();
-        m.mergeSort(array, 0, array.length - 1, new int[array.length]);
+//        MergeSort m = new MergeSort();
+//        m.mergeSort(array, 0, array.length - 1, new int[array.length]);
+
+        // 插入排序
+        InsertSort insertSort = new InsertSort();
+        insertSort.insertSort(array, array.length);
 
 
         for (int i = 0; i < array.length; i++) {
