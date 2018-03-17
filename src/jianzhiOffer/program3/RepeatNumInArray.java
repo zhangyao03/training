@@ -46,19 +46,49 @@ public class RepeatNumInArray {
      * 2、按照二分查找的思路
      *
      */
-    public static int getRepeatNum(int[] a) {
-        if (a.length <= 1) {
+    public static int getRepeatNum(int[] nums) {
+        if (nums.length <= 1) {
             return -1;
         }
 
-        int n = a.length - 1;
+        int left = 1, right = nums.length - 1;
+        int midCount, leftCount, rightCont;
+        int mid = (left + right) / 2;
+        while (left <= right) {
+            midCount = 0;
+            leftCount = 0;
+            rightCont = 0;
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] == mid) {
+                    midCount++;
+                } else if (nums[i] > mid && nums[i] <= right){
+                    rightCont++;
+                } else if (nums[i] < mid && nums[i] >= left) {
+                    leftCount++;
+                }
+            }
+
+            if (midCount > 1) {
+                return mid;
+            }
+
+            if (leftCount > (mid - left)) {
+                right = mid -1;
+            } else {
+                left = mid + 1;
+
+            }
+
+            mid = (left + right) / 2;
+        }
 
         return -1;
     }
 
     public static void main(String[] args) {
         int array[] = {3, 2 ,1, 4, 5, 6, 2, 7};
-        int result = getRepeatNumByExchange(array);
+        int array2[] = {1, 1};
+        int result = getRepeatNum(array2);
 
         System.out.printf("The repeat num is: " + result);
     }

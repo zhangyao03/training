@@ -25,23 +25,45 @@ public class BinarySearch {
     }
 
     // 非递归的实现
-    public static int binarySearch2(int[] a, int length, int target) {
-        if (a.length < 1 || length < 0 || target < 0) {
+    public static int binarySearch2(int[] nums, int target) {
+        if (nums.length < 1 || target < 0) {
             return -1;
         }
-        int low = 0, high = length -1, mid;
-        while(low <= high) {
-            mid = (low + high) / 2;
+        int left = 0, rigth = nums.length -1, mid;
 
-            if (a[mid] == target) {
+        while(left <= rigth) {
+            mid = (left + rigth) / 2;
+
+            if (nums[mid] == target) {
                 return mid;
-            }
-
-            if (a[mid] > target) {
-                high = mid - 1;
+            } else if (nums[mid] > target) {
+                rigth = mid - 1;
             } else {
-                low = mid + 1;
+                left = mid + 1;
             }
+        }
+
+        return -1;
+    }
+
+    public static int binarySearch3(int[] nums, int target) {
+        if (nums.length < 1 || target < 0) {
+            return -1;
+        }
+        int left = 0, right = nums.length -1, mid;
+
+        while (left < right) {
+            mid = (left + right) / 2;
+
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+
+        if (nums[left] == target) {
+            return left;
         }
 
         return -1;
@@ -51,7 +73,7 @@ public class BinarySearch {
         int array[] = {1, 2, 3, 4, 5, 6, 7};
         int target = 6;
 
-        int point = binarySearch2(array, array.length, target);
+        int point = binarySearch2(array, target);
 
         System.out.printf("point is " + point);
     }
