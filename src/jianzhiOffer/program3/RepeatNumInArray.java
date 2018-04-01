@@ -87,9 +87,33 @@ public class RepeatNumInArray {
 
     public static void main(String[] args) {
         int array[] = {3, 2 ,1, 4, 5, 6, 2, 7};
-        int array2[] = {1, 1};
-        int result = getRepeatNum(array2);
+        int array2[] = {10};
+        int result = searchInsert(array2, 9);
+
 
         System.out.printf("The repeat num is: " + result);
+
+
+    }
+
+    public static int searchInsert(int[] nums, int target) {
+
+        if(nums==null)
+            return 0;
+        if(nums.length==0)
+            return 0;
+        int start = 0;
+        int end = nums.length;
+        while(start<end){
+            int median = (start+end)/2;
+            if(nums[median]==target)
+                return median;
+            else if(nums[median]<target){
+                start = median + 1;
+            }else{
+                end = median - 1;
+            }
+        }
+        return start;
     }
 }
