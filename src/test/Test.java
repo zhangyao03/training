@@ -2,6 +2,7 @@ package test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.Vector;
@@ -70,6 +71,15 @@ public class Test {
         HashMap<String, String> hashMap = new HashMap<>();
         Hashtable<String, String> hashTable = new Hashtable<>();
         ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
+
+        hashMap.put("aaa", "bbb");
+
+        HashSet<String> hashSet = new HashSet<>();
+
+        hashSet.add("aaa");
+
+
+
 
     }
 }

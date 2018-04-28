@@ -22,6 +22,7 @@ public class Run {
         MyRunnable myRunnable = new MyRunnable();
         Thread thread = new Thread(myRunnable);
         thread.start();
+        thread.interrupt();
 
         try {
 //            for (Volatile v : volatileList) {
