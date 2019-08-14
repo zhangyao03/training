@@ -1,4 +1,4 @@
-package jianzhiOffer.program3;
+package jianzhioffer.program3;
 
 /**
  * 找出数组中任意重复的数

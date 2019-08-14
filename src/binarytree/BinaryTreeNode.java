@@ -1,4 +1,4 @@
-package binaryTree;
+package binarytree;
 
 /**
  *  二叉树

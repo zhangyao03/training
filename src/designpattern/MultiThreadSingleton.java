@@ -1,4 +1,4 @@
-package designPattern;
+package designpattern;
 
 /**
  * 线程安全的单例模式
