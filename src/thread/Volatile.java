@@ -17,7 +17,7 @@ public class Volatile extends Thread {
         for (int i = 0; i < 100; i++) {
             count++;
             try {
-                sleep(100);
+                sleep(10);
             } catch (InterruptedException e) {
                 System.out.println("InterruptedException");
             }

@@ -1,5 +1,8 @@
 package sort;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 /**
  * @author zhangyao12
  */
@@ -29,6 +32,9 @@ public class RunSort {
 
 
         for (int i = 0; i < array.length; i++) {
+            HashSet<Integer> deleteSet = new HashSet<>();
+            deleteSet.add(1);
+            deleteSet.contains(1);
             System.out.println(array[i]);
         }
     }
