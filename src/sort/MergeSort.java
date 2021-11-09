@@ -15,16 +15,16 @@ public class MergeSort {
      * a要排序的数组
      * temp要外部传入，需要耗费n的空间
      */
-    public static void mergeSort(int[] a, int first, int last, int[] temp) {
-        if (a.length <= 1) {
+    public static void mergeSort(int[] array, int first, int last, int[] temp) {
+        if (array.length <= 1) {
             return;
         }
         int mid = 0;
         if (first < last) {
             mid = (first + last) / 2;
-            mergeSort(a, first, mid, temp);
-            mergeSort(a, mid + 1, last, temp);
-            mergeArray(a, first, mid, last, temp);
+            mergeSort(array, first, mid, temp);
+            mergeSort(array, mid + 1, last, temp);
+            mergeArray(array, first, mid, last, temp);
         }
     }
 

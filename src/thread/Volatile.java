@@ -7,7 +7,8 @@ package thread;
  * 对于自增操作，可以使用JAVA的原子类AutoicInteger类保证原子自增
  */
 public class Volatile extends Thread {
-    private static volatile int count = 0;
+//    private static volatile int count = 0;
+    private static int count = 0;
 
     public int getCount() {
         return count;
@@ -17,7 +18,7 @@ public class Volatile extends Thread {
         for (int i = 0; i < 100; i++) {
             count++;
             try {
-                sleep(10);
+                sleep(1);
             } catch (InterruptedException e) {
                 System.out.println("InterruptedException");
             }

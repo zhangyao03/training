@@ -15,12 +15,14 @@ public class RunSort {
         b = new int[10][10];
 
         // 冒泡排序
-//        BubbleSort bubbleSort = new BubbleSort();
-//        bubbleSort.bubbleSort(array);
+//        BubbleSort.bubbleSort(array);
 
         // 快速排序
-//        QuickSort q = new QuickSort();
-//        q.quickSort(array, 0, array.length - 1);
+        System.out.println("before");
+        print(array);
+        QuickSort.quickSort(array, 0, array.length - 1);
+        System.out.println("end");
+        print(array);
 
         // 归并排序
 //        MergeSort m = new MergeSort();
@@ -31,10 +33,10 @@ public class RunSort {
 //        insertSort.insertSort(array, array.length);
 
 
+    }
+
+    private static void print (int[] array) {
         for (int i = 0; i < array.length; i++) {
-            HashSet<Integer> deleteSet = new HashSet<>();
-            deleteSet.add(1);
-            deleteSet.contains(1);
             System.out.println(array[i]);
         }
     }

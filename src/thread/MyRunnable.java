@@ -7,6 +7,6 @@ public class MyRunnable implements Runnable {
 
     @Override
     public void run() {
-        System.out.printf("this is runnable!");
+        System.out.println("this is runnable!");
     }
 }

@@ -1,46 +1,64 @@
 package thread;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.LinkedList;
-import java.util.Vector;
-import java.util.concurrent.ConcurrentHashMap;
-
 /**
  * @author zhangyao12
  */
 public class Run {
 
     public static void main(String[] args) {
-        Volatile[] volatileList = new Volatile[100];
-        for (int i = 0; i < 100; i++) {
-            volatileList[i] = new Volatile();
-        }
+//        testRunnable();
+//        testVolatile();
 
+        testJoin();
 
-        MyRunnable myRunnable = new MyRunnable();
-        Thread thread = new Thread(myRunnable);
-        thread.start();
-        thread.interrupt();
+    }
+
+    //
+    private static void testJoin() {
+        System.out.println("testJoin start.");
+
+        Thread a = new MyThread();
+        Thread b = new MyThread();
 
         try {
-//            for (Volatile v : volatileList) {
-//                v.start();
-//                v.join();
-//            }
+            a.start();
+            b.start();
+            a.join();
 
-            volatileList[1].start();
-            volatileList[1].join();
             Thread.sleep(100);
         } catch (InterruptedException e) {
             System.out.printf("InterruptedException");
         }
+        System.out.println("testJoin end.");
+    }
+
+    private static void testVolatile() {
+        int listCount = 100;
+        Volatile[] volatileList = new Volatile[listCount];
+        for (int i = 0; i < listCount; i++) {
+            volatileList[i] = new Volatile();
+        }
+
+        try {
+            for (Volatile v : volatileList) {
+//            v.start();
+                v.join();
+            }
+        } catch (InterruptedException e) {
+            System.out.printf("InterruptedException");
+        }
+
+
 
         Volatile v1 = new Volatile();
         int count = v1.getCount();
 
         System.out.println("the final count :" + count);
+    }
 
+    private static void testRunnable() {
+        MyRunnable myRunnable = new MyRunnable();
+        Thread thread = new Thread(myRunnable);
+        thread.start();
     }
 }
