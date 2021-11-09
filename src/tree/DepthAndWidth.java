@@ -1,4 +1,4 @@
-package binarytree;
+package tree;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

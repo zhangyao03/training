@@ -1,7 +1,6 @@
 package lintcode;
 
 import constant.ListNode;
-import javafx.scene.effect.Light;
 
 import java.util.ArrayList;
 import java.util.List;
